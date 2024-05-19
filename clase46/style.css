@@ -1,0 +1,139 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Comic Sans MS, Verdana, Geneva, Tahoma, sans-serif;
+}
+body {
+    background-color: rgba(216, 239, 255, 0.7);
+}
+.main_container-register {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    height: 100vh;
+    align-items: center;
+}
+.register_container {
+    width: 30%;
+    background-color: rgba(189, 227, 255, 0.7);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+    padding: 30px 0;
+}
+
+h3 {
+    padding-bottom: 15px;
+    letter-spacing: 3px;
+    font-size: 35px;
+    font-weight: lighter;
+    color: rgb(42, 54, 102);
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+}
+.form_container {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: auto;
+}
+.label_style {
+    padding: 10px 0px;
+    text-align: left;
+}
+.form_container>input {
+    border-radius: 20px;
+    padding: 10px 10px;
+    margin-bottom: 15px;
+    border: thin solid rgb(147, 147, 147, 0.5);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+.button_container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 30px;
+}
+.button_container>button {
+    border-radius: 7px;
+    padding: 7px 9px;
+    font-weight: bold;
+    color: rgb(23, 23, 23);
+    border-style: none;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.3);
+}
+.button_container :nth-child(1) {
+    background-color: rgba(213, 146, 253, 0.5);
+}
+.button_container :nth-child(2) {
+    background-color: rgb(103, 216, 253, 0.5);
+}
+.button_container :nth-child(1):hover {
+    background-color: rgb(213, 146, 253);
+    transition: 300ms;
+}
+.button_container :nth-child(2):hover {
+    background-color: rgb(103, 216, 253);
+    transition: 300ms;
+}
+.hidden_item {
+    display: none;
+}
+.visible_item {
+    display: block;
+    transition: opacity 0.3s ease;
+    opacity: 1;
+    height: auto;
+    padding: 5px;
+    margin-bottom: 15px; 
+}
+.help-message {
+    padding: 5px 0;
+}
+.valid {
+    color: green;
+    border-color: green;
+}
+.invalid {
+    color: red;
+    border-color: red;
+}
+.error_list {
+    text-align: left;
+}
+.error_list>li{
+    list-style-type: none;
+    font-size: 14px;
+}
+.error_list>li::before {
+    content: "";
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-top: 3px solid transparent; /* Altura del triángulo */
+    border-bottom: 3px solid transparent; /* Altura del triángulo */
+    border-right: 5px solid #525252; /* Ancho del triángulo y color de relleno */
+    margin-right: 5px; /* Espacio entre la flecha y el texto */
+}
+
+/* -------------------- pass con ojo!!  -----------------------------*/
+.pass_container-eye {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    width: 107%;
+}
+.pass {
+    font-size: 1.5rem;
+    width: 100%;
+    border-radius: 20px;
+    padding: 4px 10px;
+    margin-bottom: 8px;
+    border: thin solid rgb(147, 147, 147, 0.5);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+.bx {
+    font-size: 35px;
+    margin-bottom: 10px;
+    transform:  translateX(-45px);
+    color: rgb(79, 79, 157);
+    cursor: pointer;
+}

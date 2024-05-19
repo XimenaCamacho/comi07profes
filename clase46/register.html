@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"> -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>Document</title>
+</head>
+<body>
+    <main class="main_container-register">
+        <div class="register_container">
+            <h3>Registro</h3>
+            <form action="" method="post" class="form_container">
+                <input type="text" name="name" id="name" placeholder="Ingresá tu nombre" required>
+                <div class="hidden_item help_message" id="help_name">
+                    <p>Ingresá tu nombre</p>
+                </div>
+
+                <input type="text" name="lastname" id="lastname" placeholder="Ingresá tu apellido" required>
+                <div class="hidden_item help_message" id="help_lastname">
+                    <p>Ingresá tu apellido</p>
+                </div>
+
+                <input type="number" name="age" id="age" placeholder="Ingresá tu edad" required>
+                <div class="hidden_item help_message" id="help_age">
+                    <p>Ingresá tu edad (18-100 años)</p>
+                </div>
+
+                <input type="date" name="birthdate" id="birthdate" placeholder="Ingresá tu fecha de nacimiento" required>
+                <div class="hidden_item help_message" id="help_birthdate">
+                    <p>Ingresá tu fecha de nacimiento (18-100 años)</p>
+                </div>
+
+                <input type="email" name="email" id="email" placeholder="Ingresá tu email" required>
+                <div class="hidden_item help_message" id="help_email">
+                    <p>Ingresá tu email</p>
+                </div>
+                <div class="pass_container-eye">
+                    <input type="password" name="password" class="pass">
+                    <i class='bx bx-hide'></i>
+                </div>
+                <input type="password" name="password" id="password" placeholder="Ingresá tu contraseña" required>
+                <div class="hidden_item help-message" id="help_password">
+                    <ul class="error_list">
+                        <li id="length" class="invalid">Debe tener al menos 8 caracteres.</li>
+                        <li id="uppercase" class="invalid">Debe incluir una letra mayúscula.</li>
+                        <li id="lowercase" class="invalid">Debe incluir una letra minúscula.</li>
+                        <li id="number" class="invalid">Debe incluir un número.</li>
+                        <li id="special" class="invalid">Debe incluir un símbolo especial.</li>
+                    </ul>
+                </div>
+
+                <input type="password" name="confirm_password" id="confirm_password" placeholder="Confirmá tu contraseña" required>
+                <div class="hidden_item help_message" id="help_confirm_password">
+                    <p>Las contraseñas no coinciden.</p>
+                </div>
+
+                <div class="button_container">
+                    <button type="submit">Enviar datos</button>
+                    <button type="button" id="clear_fields">Limpiar campos</button>
+                </div>
+
+            </form>
+        </div>
+    </main>
+    <script src="javascript.js"></script>
+    <script src="sweetAlert2.js"></script>
+    <script src="sweetAlert.js"></script>
+</body>
+</html>
+

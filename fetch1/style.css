@@ -1,0 +1,52 @@
+* {
+    background-color: rgb(247, 244, 239);
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.titulo {
+    font-size: 40px;
+    color: whitesmoke;
+    margin: 50px 0px;
+    background-color: rgb(2, 30, 104);
+    width: 100%;
+    padding: 25px 0px;
+    text-align: center;
+}
+
+.container_general {
+    display: flex;
+    width: 80%;
+    flex-direction: column;
+}
+
+.segundo_titulo {
+    font-style: italic;
+    color: rgb(2, 30, 104);
+}
+
+.lista_api {
+    margin: 15px 0px;
+    padding: 10px 0px;
+}
+
+.items_lista {
+    list-style: none;
+}
+
+.nombre_personaje {
+    margin: 5px;
+    padding: 5px;
+}
+
+.imagen {
+    margin: 10px;
+}
