@@ -41,73 +41,47 @@ passwordInput.addEventListener('input', () => {
     validateConfirmPassword();
 });
 
+
 // Validar confirmación de contraseña
 confirmPasswordInput.addEventListener('input', validateConfirmPassword);
 
 function validateConfirmPassword() {
     const helpConfirmPassword = document.getElementById('help_confirm_password');
-    if (confirmPasswordInput.value === passwordInput.value) {
-        confirmPasswordInput.classList.remove('invalid');
-        confirmPasswordInput.classList.add('valid');
-        helpConfirmPassword.classList.remove('visible_item');
-        helpConfirmPassword.classList.add('hidden_item');
-    } else {
-        confirmPasswordInput.classList.remove('valid');
-        confirmPasswordInput.classList.add('invalid');
-        helpConfirmPassword.classList.remove('hidden_item');
-        helpConfirmPassword.classList.add('visible_item');
-    }
+    const coincide = confirmPasswordInput.value === passwordInput.value;
+    confirmPasswordInput.classList.toggle('valid', coincide );
+    confirmPasswordInput.classList.toggle('invalid', !coincide );
+    helpConfirmPassword.classList.toggle('visible_item', !coincide );
+    helpConfirmPassword.classList.toggle('hidden_item', coincide );
 }
 
-// Validar otros campos
+//validar otros inputs
+const validationRules = {
+    name: value => /^[A-Za-z\s]+$/.test(value) && value !== "",
+    lastname: value => /^[A-Za-z\s]+$/.test(value) && value !== "",
+    age: value => !isNaN(value) && parseInt(value) >= 18 && parseInt(value) <= 100 && value !== "",
+    birthdate: value => {
+        const birthdate = new Date(value);
+        const today = new Date();
+        const ageFromBirthdate = today.getFullYear() - birthdate.getFullYear();
+        return !isNaN(ageFromBirthdate) && ageFromBirthdate >= 18 && ageFromBirthdate <= 100 && value !== "";
+    },
+    email: value => /[-A-Za-z0-9!#$%&'*+\/=?^_`{|}~]+(?:\.[-A-Za-z0-9!#$%&'*+\/=?^_`{|}~]+)*@(?:[A-Za-z0-9](?:[-A-Za-z0-9]*[A-Za-z0-9])?\.)+[A-Za-z0-9](?:[-A-Za-z0-9]*[A-Za-z0-9])?/i.test(value) && value !== ""
+};
+
+
+let eventosEscuchados = ["input", "focus", "blur"];
 inputs.forEach(input => {
-    input.addEventListener('input', () => {
+    eventosEscuchados.forEach(evento => input.addEventListener( evento, () => {
         validateInput(input);
-    });
-
-    input.addEventListener('focus', () => {
-        if (input.value.trim() === '') {
-            input.classList.remove('valid');
-            input.classList.add('invalid');
-        }
-    });
-
-    input.addEventListener('blur', () => {
-        if (input.value.trim() !== '') {
-            input.classList.remove('invalid');
-            input.classList.add('valid');
-        } else {
-            input.classList.remove('valid');
-            input.classList.add('invalid');
-        }
-    });
+    })) 
 });
 
 function validateInput(input) {
-    let isValid = true;
-
-    if (input.id === 'name' || input.id === 'lastname') {
-        isValid = input.value.trim() !== '';
-    } else if (input.id === 'age') {
-        const age = parseInt(input.value, 10);
-        isValid = age >= 18 && age <= 100;
-    } else if (input.id === 'birthdate') {
-        const birthdate = new Date(input.value);
-        const today = new Date();
-        const age = today.getFullYear() - birthdate.getFullYear();
-        isValid = age >= 18 && age <= 100;
-    } else if (input.id === 'email') {
-        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        isValid = emailPattern.test(input.value);
-    }
-
-    if (isValid) {
-        input.classList.remove('invalid');
-        input.classList.add('valid');
-    } else {
-        input.classList.remove('valid');
-        input.classList.add('invalid');
-    }
+    const isValid = validationRules[input.id](input.value.trim());
+    input.classList.toggle('invalid', !isValid);
+    input.classList.toggle('valid', isValid);
+    const helpInpunt = document.getElementById(`help_${input.id}`);
+    helpInpunt.classList.toggle('hidden_item', isValid);
 }
 
 // Limpiar campos del formulario

@@ -44,7 +44,6 @@ h3 {
     border-radius: 20px;
     padding: 10px 10px;
     margin-bottom: 15px;
-    border: thin solid rgb(147, 147, 147, 0.5);
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 .button_container {
