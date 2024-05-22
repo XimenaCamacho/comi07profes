@@ -74,6 +74,7 @@ h3 {
     background-color: rgb(103, 216, 253);
     transition: 300ms;
 }
+/*-------------------------Inicia estilos de validacion----------------*/
 .hidden_item {
     display: none;
 }
